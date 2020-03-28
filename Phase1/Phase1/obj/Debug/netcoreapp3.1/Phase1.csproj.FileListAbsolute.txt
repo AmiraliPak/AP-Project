@@ -1,0 +1,17 @@
+E:\AP Project\AP-Project\Phase1\Phase1\bin\Debug\netcoreapp3.1\Phase1.exe
+E:\AP Project\AP-Project\Phase1\Phase1\bin\Debug\netcoreapp3.1\Phase1.deps.json
+E:\AP Project\AP-Project\Phase1\Phase1\bin\Debug\netcoreapp3.1\Phase1.runtimeconfig.json
+E:\AP Project\AP-Project\Phase1\Phase1\bin\Debug\netcoreapp3.1\Phase1.runtimeconfig.dev.json
+E:\AP Project\AP-Project\Phase1\Phase1\bin\Debug\netcoreapp3.1\Phase1.dll
+E:\AP Project\AP-Project\Phase1\Phase1\bin\Debug\netcoreapp3.1\Phase1.pdb
+E:\AP Project\AP-Project\Phase1\Phase1\obj\Debug\netcoreapp3.1\Phase1.csprojAssemblyReference.cache
+E:\AP Project\AP-Project\Phase1\Phase1\obj\Debug\netcoreapp3.1\MainWindow.g.cs
+E:\AP Project\AP-Project\Phase1\Phase1\obj\Debug\netcoreapp3.1\App.g.cs
+E:\AP Project\AP-Project\Phase1\Phase1\obj\Debug\netcoreapp3.1\Phase1_MarkupCompile.cache
+E:\AP Project\AP-Project\Phase1\Phase1\obj\Debug\netcoreapp3.1\Phase1_MarkupCompile.lref
+E:\AP Project\AP-Project\Phase1\Phase1\obj\Debug\netcoreapp3.1\MainWindow.baml
+E:\AP Project\AP-Project\Phase1\Phase1\obj\Debug\netcoreapp3.1\Phase1.g.resources
+E:\AP Project\AP-Project\Phase1\Phase1\obj\Debug\netcoreapp3.1\Phase1.AssemblyInfoInputs.cache
+E:\AP Project\AP-Project\Phase1\Phase1\obj\Debug\netcoreapp3.1\Phase1.AssemblyInfo.cs
+E:\AP Project\AP-Project\Phase1\Phase1\obj\Debug\netcoreapp3.1\Phase1.dll
+E:\AP Project\AP-Project\Phase1\Phase1\obj\Debug\netcoreapp3.1\Phase1.pdb
