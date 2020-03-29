@@ -5,11 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Phase1"
         mc:Ignorable="d"
-        Title="MainWindow" Height="500" Width="500">
-    <Border Padding="5">
+        Title="MainWindow" Height="500" Width="500"
+        ResizeMode="CanMinimize">
+    <Window.Background>
+        <ImageBrush ImageSource="a.jpg" Stretch="UniformToFill"/>
+    </Window.Background>
+    <Border Padding="10">
         <Grid>
-            <TextBlock x:Name="DescriptionText" Text="Some Description!" FontWeight="Bold" HorizontalAlignment="Right" Margin="0 6"/>
+            <TextBlock x:Name="DescriptionText" Text="Complete Your Order!" Foreground="White" FontWeight="Bold" HorizontalAlignment="Right" Margin="2 6"/>
             <TabControl SelectionChanged="TabControl_SelectionChanged">
+                <TabControl.Background>
+                    <ImageBrush ImageSource="c.jpg" Opacity="0.7"/>
+                </TabControl.Background>
                 <!-- TAB1 -->
                 <TabItem x:Name="Tab1" Padding="10 10" Header="1">
                     <StackPanel>
@@ -20,13 +27,13 @@
                                 <ColumnDefinition Width="32*"/>
                             </Grid.ColumnDefinitions>
 
-                            <Button Padding="5 10" Margin="51,10,10,10" Content="Save" Grid.Column="0"/>
-                            <Button Padding="5 10" Margin="10,10,10,10" Content="Load" Grid.Column="1"/>
-                            <Button Padding="5 10" Margin="7,10,51,10" Content="R" Grid.Column="2"/>
+                            <Button Padding="5 10" Foreground="White" Background="#313131" Margin="51,10,10,10" Content="Save" Grid.Column="0"/>
+                            <Button Padding="5 10" Foreground="White" Background="#313131" Margin="10,10,10,10" Content="Load" Grid.Column="1"/>
+                            <Button Padding="5 10" Foreground="White" Background="#313131" Margin="7,10,51,10" Content="R" Grid.Column="2"/>
 
                         </Grid>
-                        <Button Padding="5 10" Margin="51 10" Content="New"/>
-                        <TextBlock Text="Check Boxes" FontWeight="Bold" Margin="20 10"/>
+                        <Button Padding="5 10" Foreground="White" Background="#313131" Margin="51 10" Content="New"/>
+                        <TextBlock Text="Menu" FontWeight="Bold" Margin="20 10"/>
                         <Grid Margin="25 0">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*"/>
@@ -34,29 +41,28 @@
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
                             <StackPanel>
-                                <CheckBox Content="A"/>
-                                <CheckBox Content="A"/>
-                                <CheckBox Content="A"/>
-                                <CheckBox Content="A"/>
+                                <CheckBox x:Name="CB0" FontSize="17" Checked="CheckBox_Changed" Unchecked="CheckBox_Changed" BorderBrush="#313131" BorderThickness="3"/>
+                                <CheckBox x:Name="CB1" FontSize="17" Checked="CheckBox_Changed" Unchecked="CheckBox_Changed" BorderBrush="#313131" BorderThickness="3"/>
+                                <CheckBox x:Name="CB2" FontSize="17" Checked="CheckBox_Changed" Unchecked="CheckBox_Changed" BorderBrush="#313131" BorderThickness="3"/>
+                            </StackPanel>                                                                                                                                   
+                            <StackPanel Grid.Column="1">                                                                                                                    
+                                <CheckBox x:Name="CB3" FontSize="17" Checked="CheckBox_Changed" Unchecked="CheckBox_Changed" BorderBrush="#313131" BorderThickness="3"/>
+                                <CheckBox x:Name="CB4" FontSize="17" Checked="CheckBox_Changed" Unchecked="CheckBox_Changed" BorderBrush="#313131" BorderThickness="3"/>
+                                <CheckBox x:Name="CB5" FontSize="17" Checked="CheckBox_Changed" Unchecked="CheckBox_Changed" BorderBrush="#313131" BorderThickness="3"/>
                             </StackPanel>
-                            <StackPanel Grid.Column="1">
-                                <CheckBox Content="A"/>
-                                <CheckBox Content="A"/>
-                                <CheckBox Content="A"/>
-                                <CheckBox Content="A"/>
-                            </StackPanel>
-                            <ComboBox SelectedIndex="0" Grid.Column="2" VerticalAlignment="Top" Margin="10 0">
-                                <ComboBoxItem Content="Select" BorderBrush="LightGray"/>
-                                <ComboBoxItem Content="One"/>
-                                <ComboBoxItem Content="Two"/>
-                                <ComboBoxItem Content="Three"/>
+                            <ComboBox x:Name="comboBox" SelectedIndex="0" Grid.Column="2" VerticalAlignment="Top"
+                                      Margin="5 0">
+                                <ComboBoxItem TabIndex="0" Selected="ComboBoxItem_Selected" Content="Select" Background="LightGray"/>
+                                <ComboBoxItem TabIndex="1" Selected="ComboBoxItem_Selected" Content="SandWiches" Background="#313131" Foreground="White"/>
+                                <ComboBoxItem TabIndex="2" Selected="ComboBoxItem_Selected" Content="Pizzas" Background="#313131" Foreground="White"/>
+                                <ComboBoxItem TabIndex="3" Selected="ComboBoxItem_Selected" Content="Appetizer/Beverage" Background="#313131" Foreground="White"/>
                             </ComboBox>
                         </Grid>
                         <TextBlock Text="Notes" FontWeight="Bold" Margin="20 20 20 10"/>
                         <TextBox Margin="20 0" Padding="2" TextWrapping="Wrap" MinLines="5" MaxLines="5"
-                             VerticalScrollBarVisibility="Auto" AcceptsReturn="True"/>
+                             VerticalScrollBarVisibility="Auto" AcceptsReturn="True" Background="#313131" Foreground="White"/>
                         <Button x:Name="NextPageButton" Margin="20" Content="Next Page" HorizontalAlignment="Center"
-                                Click="NextPageButton_Click"/>
+                                Click="NextPageButton_Click" Background="#313131" Foreground="White"/>
                     </StackPanel>
                 </TabItem>
                 <!-- TAB2 -->
@@ -68,19 +74,24 @@
                                 <ColumnDefinition Width="5*"/>
                             </Grid.ColumnDefinitions>
                             <StackPanel Grid.Column="0">
-                                <TextBlock Margin="4.5" HorizontalAlignment="Right">Name :</TextBlock>
-                                <TextBlock Margin="4.5" HorizontalAlignment="Right">Family :</TextBlock>
-                                <TextBlock Margin="4.5" HorizontalAlignment="Right">Age :</TextBlock>
-                                <TextBlock Margin="4.5" HorizontalAlignment="Right">Equations :</TextBlock>
+                                <TextBlock Margin="4.5" HorizontalAlignment="Right" FontSize="17">Name :</TextBlock>
+                                <TextBlock Margin="4.5" HorizontalAlignment="Right" FontSize="17">Family :</TextBlock>
+                                <TextBlock Margin="4.5" HorizontalAlignment="Right" FontSize="17">Adress :</TextBlock>
+                                <TextBlock Margin="4.5" HorizontalAlignment="Right" FontSize="17">Order :</TextBlock>
                             </StackPanel>
                             <StackPanel Grid.Column="1">
-                                <TextBox Margin="2 2 50 2" Padding="2" TextWrapping="Wrap" MaxLines="1"/>
-                                <TextBox Margin="2 2 50 2" Padding="2" TextWrapping="Wrap" MaxLines="1"/>
-                                <TextBox Margin="2 2 50 2" Padding="2" TextWrapping="Wrap" MaxLines="1"/>
-                                <TextBox Margin="2 2 50 2" Padding="2" TextWrapping="Wrap" MaxLines="5" MinLines="5"
-                                         AcceptsReturn="True" VerticalScrollBarVisibility="Auto"/>
+                                <TextBox Margin="2 7 50 7" Padding="2" TextWrapping="Wrap" MaxLines="1" Background="#313131" Foreground="White"/>
+                                <TextBox Margin="2 4 50 4" Padding="2" TextWrapping="Wrap" MaxLines="1" Background="#313131" Foreground="White"/>
+                                <TextBox Margin="2 5 50 5" Padding="2" TextWrapping="Wrap" MaxLines="1" Background="#313131" Foreground="White"/>
+                                <TextBox x:Name="Order" Margin="2 5 50 5" Padding="2" TextWrapping="Wrap" MinLines="5"
+                                         AcceptsReturn="True" IsReadOnly="True" Background="#313131" Foreground="White"/>
                             </StackPanel>
                         </Grid>
+                        <Button Content="Finish" Margin="150 100" FontSize="40" Padding="20" Click="Finish_Click" BorderThickness="0">
+                            <Button.Background>
+                                <ImageBrush ImageSource="d.png" Stretch="Fill"/>
+                            </Button.Background>
+                        </Button>
                     </StackPanel>
                 </TabItem>
             </TabControl>
