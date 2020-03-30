@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Phase1"
         mc:Ignorable="d"
-        Title="MainWindow" Height="500" Width="500"
-        ResizeMode="CanMinimize">
+        Title="&lt;&lt;&lt;&lt;FASTFOOD ORDER&gt;&gt;&gt;&gt;" Height="500" Width="500"
+        ResizeMode="CanMinimize" Icon="d.png">
     <Window.Background>
         <ImageBrush ImageSource="a.jpg" Stretch="UniformToFill"/>
     </Window.Background>
@@ -27,12 +27,12 @@
                                 <ColumnDefinition Width="32*"/>
                             </Grid.ColumnDefinitions>
 
-                            <Button Padding="5 10" Foreground="White" Background="#313131" Margin="51,10,10,10" Content="Save" Grid.Column="0"/>
-                            <Button Padding="5 10" Foreground="White" Background="#313131" Margin="10,10,10,10" Content="Load" Grid.Column="1"/>
-                            <Button Padding="5 10" Foreground="White" Background="#313131" Margin="7,10,51,10" Content="R" Grid.Column="2"/>
+                            <Button Padding="5 10" BorderBrush="#ACACAC" Foreground="White" Background="#313131" Margin="51,10,10,10" Content="Save" Grid.Column="0" Click="Button_Click"/>
+                            <Button Padding="5 10" BorderBrush="#ACACAC" Foreground="White" Background="#313131" Margin="10,10,10,10" Content="Load" Grid.Column="1" Click="Button_Click"/>
+                            <Button Padding="5 10" BorderBrush="#ACACAC" Foreground="White" Background="#313131" Margin="7,10,51,10" Content="R" Grid.Column="2" Click="Button_Click"/>
 
                         </Grid>
-                        <Button Padding="5 10" Foreground="White" Background="#313131" Margin="51 10" Content="New"/>
+                        <Button Padding="5 10" BorderBrush="#ACACAC" Foreground="White" Background="#313131" Margin="51 10" Content="New" Click="Button_Click"/>
                         <TextBlock Text="Menu" FontWeight="Bold" Margin="20 10"/>
                         <Grid Margin="25 0">
                             <Grid.ColumnDefinitions>
@@ -41,22 +41,33 @@
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
                             <StackPanel>
-                                <CheckBox x:Name="CB0" FontSize="17" Checked="CheckBox_Changed" Unchecked="CheckBox_Changed" BorderBrush="#313131" BorderThickness="3"/>
-                                <CheckBox x:Name="CB1" FontSize="17" Checked="CheckBox_Changed" Unchecked="CheckBox_Changed" BorderBrush="#313131" BorderThickness="3"/>
-                                <CheckBox x:Name="CB2" FontSize="17" Checked="CheckBox_Changed" Unchecked="CheckBox_Changed" BorderBrush="#313131" BorderThickness="3"/>
+                                <CheckBox x:Name="CB0" FontSize="15" Checked="CheckBox_Changed" Unchecked="CheckBox_Changed" BorderBrush="#313131" BorderThickness="3"/>
+                                <CheckBox x:Name="CB1" FontSize="15" Checked="CheckBox_Changed" Unchecked="CheckBox_Changed" BorderBrush="#313131" BorderThickness="3"/>
+                                <CheckBox x:Name="CB2" FontSize="15" Checked="CheckBox_Changed" Unchecked="CheckBox_Changed" BorderBrush="#313131" BorderThickness="3"/>
                             </StackPanel>                                                                                                                                   
                             <StackPanel Grid.Column="1">                                                                                                                    
-                                <CheckBox x:Name="CB3" FontSize="17" Checked="CheckBox_Changed" Unchecked="CheckBox_Changed" BorderBrush="#313131" BorderThickness="3"/>
-                                <CheckBox x:Name="CB4" FontSize="17" Checked="CheckBox_Changed" Unchecked="CheckBox_Changed" BorderBrush="#313131" BorderThickness="3"/>
-                                <CheckBox x:Name="CB5" FontSize="17" Checked="CheckBox_Changed" Unchecked="CheckBox_Changed" BorderBrush="#313131" BorderThickness="3"/>
+                                <CheckBox x:Name="CB3" FontSize="15" Checked="CheckBox_Changed" Unchecked="CheckBox_Changed" BorderBrush="#313131" BorderThickness="3"/>
+                                <CheckBox x:Name="CB4" FontSize="15" Checked="CheckBox_Changed" Unchecked="CheckBox_Changed" BorderBrush="#313131" BorderThickness="3"/>
+                                <CheckBox x:Name="CB5" FontSize="15" Checked="CheckBox_Changed" Unchecked="CheckBox_Changed" BorderBrush="#313131" BorderThickness="3"/>
                             </StackPanel>
-                            <ComboBox x:Name="comboBox" SelectedIndex="0" Grid.Column="2" VerticalAlignment="Top"
-                                      Margin="5 0">
-                                <ComboBoxItem TabIndex="0" Selected="ComboBoxItem_Selected" Content="Select" Background="LightGray"/>
-                                <ComboBoxItem TabIndex="1" Selected="ComboBoxItem_Selected" Content="SandWiches" Background="#313131" Foreground="White"/>
-                                <ComboBoxItem TabIndex="2" Selected="ComboBoxItem_Selected" Content="Pizzas" Background="#313131" Foreground="White"/>
-                                <ComboBoxItem TabIndex="3" Selected="ComboBoxItem_Selected" Content="Appetizer/Beverage" Background="#313131" Foreground="White"/>
-                            </ComboBox>
+                            <StackPanel Grid.Column="2">
+                                <ComboBox x:Name="comboBox" SelectedIndex="0" VerticalAlignment="Top" Margin="5 0" SelectionChanged="comboBox_SelectionChanged">
+                                    <ComboBoxItem TabIndex="0" Selected="ComboBoxItem_Selected" Content="Select" Background="LightGray"/>
+                                    <ComboBoxItem TabIndex="1" Selected="ComboBoxItem_Selected" Content="SandWiches" Background="#313131" Foreground="White"/>
+                                    <ComboBoxItem TabIndex="2" Selected="ComboBoxItem_Selected" Content="Pizzas" Background="#313131" Foreground="White"/>
+                                    <ComboBoxItem TabIndex="3" Selected="ComboBoxItem_Selected" Content="Appetizer/Beverage" Background="#313131" Foreground="White"/>
+                                </ComboBox>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="5*"/>
+                                        <ColumnDefinition Width="1.5*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Slider Grid.Column="0" Margin="6 15 0 15" IsSnapToTickEnabled="True" Maximum="30" Minimum="1" TickPlacement="BottomRight" Name="quantity" IsEnabled="False"
+                                             ValueChanged="quantity_ValueChanged" Background="#313131" Foreground="White" BorderThickness="1" BorderBrush="#ACACAC"/>
+                                    <TextBox Grid.Column="1" Text="{Binding ElementName=quantity, Path=Value, UpdateSourceTrigger=PropertyChanged}" Padding="2" TextAlignment="Center"
+                                              Background="#313131" Foreground="White" Margin="-1 15 6 15" IsEnabled="False" x:Name="sliderNumber"/>
+                                </Grid>
+                            </StackPanel>
                         </Grid>
                         <TextBlock Text="Notes" FontWeight="Bold" Margin="20 20 20 10"/>
                         <TextBox Margin="20 0" Padding="2" TextWrapping="Wrap" MinLines="5" MaxLines="5"
@@ -80,17 +91,20 @@
                                 <TextBlock Margin="4.5" HorizontalAlignment="Right" FontSize="17">Order :</TextBlock>
                             </StackPanel>
                             <StackPanel Grid.Column="1">
-                                <TextBox Margin="2 7 50 7" Padding="2" TextWrapping="Wrap" MaxLines="1" Background="#313131" Foreground="White"/>
-                                <TextBox Margin="2 4 50 4" Padding="2" TextWrapping="Wrap" MaxLines="1" Background="#313131" Foreground="White"/>
-                                <TextBox Margin="2 5 50 5" Padding="2" TextWrapping="Wrap" MaxLines="1" Background="#313131" Foreground="White"/>
-                                <TextBox x:Name="Order" Margin="2 5 50 5" Padding="2" TextWrapping="Wrap" MinLines="5"
-                                         AcceptsReturn="True" IsReadOnly="True" Background="#313131" Foreground="White"/>
+                                <TextBox x:Name="Name" Margin="2 7 49 7" Padding="2" TextWrapping="Wrap" MaxLines="1" Background="#313131" Foreground="White"/>
+                                <TextBox x:Name="Family" Margin="2 4 49 4" Padding="2" TextWrapping="Wrap" MaxLines="1" Background="#313131" Foreground="White"/>
+                                <TextBox x:Name="Address" Margin="2 5 49 5" Padding="2" TextWrapping="Wrap" MaxLines="1" Background="#313131" Foreground="White"/>
+                                <TextBox x:Name="Order" Margin="2 5 32 0" Padding="2" TextWrapping="Wrap" MinLines="13" FontFamily="Lucida Console"
+                                         AcceptsReturn="True" IsReadOnly="True" Background="#313131" Foreground="White" MaxLines="13" VerticalScrollBarVisibility="Visible"/>
+                                <TextBox TextWrapping="Wrap" Margin="2.7 -1 50 0" MinLines="2" MaxLines="2" IsReadOnly="True" Background="#313131" Foreground="White"
+                                          BorderThickness="0" x:Name="Total" FontFamily="Lucida Console" Padding="2"/>
                             </StackPanel>
                         </Grid>
-                        <Button Content="Finish" Margin="150 100" FontSize="40" Padding="20" Click="Finish_Click" BorderThickness="0">
+                        <Button Margin="150 -7" FontSize="30" Click="Finish_Click" BorderThickness="0">
                             <Button.Background>
                                 <ImageBrush ImageSource="d.png" Stretch="Fill"/>
                             </Button.Background>
+                            <TextBlock Text="Payment Page" TextWrapping="Wrap" TextAlignment="Center"/>
                         </Button>
                     </StackPanel>
                 </TabItem>
